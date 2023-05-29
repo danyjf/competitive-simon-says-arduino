@@ -217,9 +217,9 @@ void lose()
   nextPlayer();
   
   dispenseMarble();
-  playMarbleMusic();
   
   waitForMarble();
+  playMarbleMusic();
   dispenseChocolate();
 
   delay(1000);
@@ -260,7 +260,7 @@ void playWinMusic()
 
 void dispenseMarble()
 {
-  int rotation = 0;
+  int rotation = 20;
   if (currentPlayer == 2)
   {
     rotation = 180;
@@ -302,4 +302,3 @@ void playMarbleMusic()
   	noTone(buzzerPin);
   }
 }
-0
