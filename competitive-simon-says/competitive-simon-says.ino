@@ -2,6 +2,8 @@
 
 Servo servoMarble;
 int servoMarblePin = 11;
+Servo servoChocolate;
+int servoChocolatePin = 10;
 
 int sensorPin = 5;
 
@@ -21,13 +23,13 @@ byte p1Leds[] = {
 };
 
 // player 2 buttons
-int p2Buttons[] = {A1, A0, 12, 13};
+int p2Buttons[] = {13, 12, A0, A1};
 // player 2 LEDs
 byte p2Leds[] = {
-  B00010000, // red
-  B00100000, // green
+  B10000000, // yellow
   B01000000, // blue
-  B10000000  // yellow
+  B00100000, // green
+  B00010000  // red
 };
 
 int buzzerPin = 6;
@@ -62,6 +64,9 @@ void setup()
 
   servoMarble.write(90);
   servoMarble.attach(servoMarblePin);
+
+  servoChocolate.write(0);
+  servoChocolate.attach(servoChocolatePin);
 
   pinMode(sensorPin, INPUT);
 
@@ -284,7 +289,9 @@ void waitForMarble()
 
 void dispenseChocolate()
 {
-
+  servoChocolate.write(90);
+  delay(1000);
+  servoChocolate.write(0);
 }
 
 void playMarbleMusic() 
