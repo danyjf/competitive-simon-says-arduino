@@ -128,7 +128,8 @@ int checkButtons(int buttons[])
   {
     if (digitalRead(buttons[i]) == HIGH)
     {
-		return i;
+      delay(50);
+		  return i;
     }
   }
   return -1;
